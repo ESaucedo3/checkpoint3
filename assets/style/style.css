@@ -27,3 +27,7 @@ textarea {
   top: -0.1rem;
   left: -1.3rem;
 }
+
+.note-style {
+  border-left: 3px solid;
+}
