@@ -8,6 +8,7 @@ export class NotesController {
     console.log('Notes Controller Loaded');
     this.drawNotes();
     AppState.on('notes', this.drawNotes);
+    AppState.on('activeNote', this.drawActiveNote);
   }
 
   drawNotes() {
@@ -17,7 +18,10 @@ export class NotesController {
     setHTML('notes-list', notesList);
   }
 
-  drawActiveNote() {}
+  drawActiveNote() {
+    const actualNote = AppState.activeNote;
+    setHTML('active-note', actualNote.ActiveNoteTemplate);
+  }
 
   createNote() {
     event.preventDefault();
@@ -26,5 +30,7 @@ export class NotesController {
     notesService.createNote(noteFormData);
   }
 
-  setActiveNote() {}
+  setActiveNote(noteId) {
+    notesService.setActiveNote(noteId);
+  }
 }

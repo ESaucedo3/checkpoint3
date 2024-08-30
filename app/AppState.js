@@ -8,6 +8,9 @@ class ObservableAppState extends EventEmitter {
     new Note({title: 'JS Tricks', color: '#9F2B68', body: 'You foreach to access items within array and so much more'}),
     new Note({title: 'C# Stuff', color: '#8B0000', body: 'Not sure what to say yet'}),
   ];
+
+  /**@type {Note} */
+  activeNote = null;
 }
 
 export const AppState = createObservableProxy(new ObservableAppState());

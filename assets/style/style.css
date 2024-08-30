@@ -31,3 +31,8 @@ textarea {
 .note-style {
   border-left: 3px solid;
 }
+
+.makeActive {
+  border: none;
+  background: none;
+}
