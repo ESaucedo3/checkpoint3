@@ -5,7 +5,7 @@ export class Note {
     this.id = data.id || generateId();
     this.title = data.title;
     this.color = data.color;
-    this.body = data.body;
+    this.body = data.body || '';
     // NOTE Although new notes will recieve a new date, existing notes cannot
     this.createdAt = new Date();
     this.updatedAt = new Date();

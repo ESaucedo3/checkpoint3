@@ -58,12 +58,12 @@
           <div class="col-md-4 border border-2 border-light rounded text-light mood">
             <div class="notes-design">
               <div class="mb-3">
-                <form onsubmit="">
+                <form onsubmit="app.NotesController.createNote()">
                   <div class="">
                     <p class="text-end">3 Jots</p>
                     <p class="m-0">Add a Jot</p>
-                    <input name="selected-color" type="color" />
-                    <input name="user-title" class="mx-3 rounded mood text-light" placeholder="Title" />
+                    <input name="color" type="color" />
+                    <input name="title" class="mx-3 rounded mood text-light" placeholder="Title" />
                     <button class="btn btn-outline-light rounded mb-2">Create +</button>
                   </div>
                 </form>
