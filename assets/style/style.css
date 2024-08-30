@@ -1,0 +1,29 @@
+/* BASIC STYLES HERE */
+main {
+  background-color: #1F1D38;
+}
+
+input[type="color"] {
+  border-radius: 50%;
+  inline-size: 30px;
+  block-size: 30px;
+  border-width: 1px;
+  border-color: #333;
+}
+
+.mood {
+  background-color: #282546;
+}
+
+.notes-img {
+  height: 13rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.bookmark {
+  top: -0.1rem;
+  left: -1.3rem;
+}
