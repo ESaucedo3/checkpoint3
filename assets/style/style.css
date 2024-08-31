@@ -36,3 +36,7 @@ textarea {
   border: none;
   background: none;
 }
+
+.prime-container {
+  min-height: 70dvh;
+}

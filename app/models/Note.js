@@ -36,22 +36,23 @@ export class Note {
                       <i class="fa-solid fa-bookmark fa-2xl position-absolute bookmark" style="color: ${this.color}"></i>
                       <h4>${this.title}</h4>
                       <p class="m-0">Created on: ${this.createdDate}</p>
-                      <p>Last Updated on: ${this.updatedAt}</p>
+                      <p>Last Updated on: ${this.createdDate}</p>
                     </div>
+                    
+                    <form onsubmit="app.NotesController.updateNote()">
+                      <div class="col-6 d-flex justify-content-end align-items-end mb-2">
+                        <button type="button" onclick="app.NotesController.deleteNote('${this.id}')" class="btn btn-outline-danger rounded px-2 align-self-end"><i class="fa-solid fa-trash" style="color: #d70000"></i> Delete</button>
+                        <button class="btn btn-outline-primary rounded px-2 align-self-end ms-3"><i class="fa-solid fa-floppy-disk" style="color: #74c0fc"></i> Save</button>
+                      </div>
 
-                    <div class="col-6 d-flex justify-content-end align-items-end mb-2">
-                      <button class="btn btn-outline-danger rounded px-2 align-self-end"><i class="fa-solid fa-trash" style="color: #d70000"></i> Delete</button>
-                      <button class="btn btn-outline-primary rounded px-2 align-self-end ms-3"><i class="fa-solid fa-floppy-disk" style="color: #74c0fc"></i> Save</button>
-                    </div>
-
-                    <textarea class="form-control border border-2 border-primary bg-dark text-light" name="body" rows="19">${this.body}
-                    </textarea>
+                      <textarea class="form-control border border-2 border-primary bg-dark text-light" id="body" name="body" rows="19">${this.body}</textarea>
+                    </form>
                   </div>
                 </div>
               </div>`;
   }
 
-  get NoActiveNoteTemplate() {
+  static get NoActiveNoteTemplate() {
     return `<div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center             align-items-center">
                 <img class="notes-img" src="assets/img/notes-img.png" alt="" />
                 <h3 class="text-light">Create or select a jot to start jotting</h3>
