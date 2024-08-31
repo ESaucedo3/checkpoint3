@@ -53,7 +53,7 @@
     <!-- SECTION -->
     <main>
       <section class="container-fluid py-2 px-4">
-        <div class="row">
+        <div class="row prime-container">
           <!-- ANCHOR List of notes -->
           <div class="col-md-4 border border-2 border-light rounded text-light mood">
             <div class="notes-design">
@@ -74,8 +74,14 @@
             </div>
           </div>
           <!-- ANCHOR Active Note -->
-          <div class="col-md-8 rounded mood border border-2 border-light position-relative">
-            <div id="active-note"></div>
+          <section class="col-md-8 rounded mood border border-2 border-light position-relative">
+            <div id="active-note">
+              <div id="note-selection" class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center             align-items-center">
+                <img class="notes-img" src="assets/img/notes-img.png" alt="" />
+                <h3 class="text-light">Create or select a jot to start jotting</h3>
+              </div>
+            </div>
+          </section>
           </div>
         </div>
       </section>
