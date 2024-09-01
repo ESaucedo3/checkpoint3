@@ -38,15 +38,17 @@ export class Note {
                       <p class="m-0">Created on: ${this.createdDate}</p>
                       <p>Last Updated on: ${this.createdDate}</p>
                     </div>
-                    
-                    <form onsubmit="app.NotesController.updateNote()">
-                      <div class="col-6 d-flex justify-content-end align-items-end mb-2">
-                        <button type="button" onclick="app.NotesController.deleteNote('${this.id}')" class="btn btn-outline-danger rounded px-2 align-self-end"><i class="fa-solid fa-trash" style="color: #d70000"></i> Delete</button>
-                        <button class="btn btn-outline-primary rounded px-2 align-self-end ms-3"><i class="fa-solid fa-floppy-disk" style="color: #74c0fc"></i> Save</button>
-                      </div>
 
-                      <textarea class="form-control border border-2 border-primary bg-dark text-light" id="body" name="body" rows="19">${this.body}</textarea>
-                    </form>
+                    <div class="col-6 d-flex justify-content-end align-items-end mb-2">
+                      <button type="button" onclick="app.NotesController.deleteNote('${this.id}')" class="btn btn-outline-danger rounded px-2 align-self-end">
+                        <i class="fa-solid fa-trash" style="color: #d70000"></i> Delete
+                      </button>
+                      <button type="button" class="btn btn-outline-primary rounded px-2 align-self-end ms-3" onclick="app.NotesController.updateNote()">
+                        <i class="fa-solid fa-floppy-disk" style="color: #74c0fc"></i> Save
+                      </button>
+                    </div>
+
+                    <textarea class="form-control border border-2 border-primary bg-dark text-light" id="body" rows="13" onblur="app.NotesController.updateNote()">${this.body}</textarea>
                   </div>
                 </div>
               </div>`;

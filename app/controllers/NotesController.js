@@ -39,6 +39,7 @@ export class NotesController {
   }
 
   deleteNote(noteId) {
+    if (!window.confirm('Want to delete the note?')) return;
     notesService.deleteNote(noteId);
     const activeNoteElem = document.getElementById('active-note');
     activeNoteElem.innerHTML = '';
@@ -46,9 +47,8 @@ export class NotesController {
   }
 
   updateNote() {
-    event.preventDefault();
-    const form = event.target;
-    const textAreaElem = form.body.value;
+    // @ts-ignore
+    const textAreaElem = document.getElementById('body').value;
     notesService.updateNote(textAreaElem);
   }
 }

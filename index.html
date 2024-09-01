@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Checkpoint 3</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -19,7 +20,6 @@
       referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/style/main.css" />
     <link rel="stylesheet" href="assets/style/style.css" />
-    <title>checkpoint3</title>
   </head>
 
   <body>
@@ -28,7 +28,7 @@
       <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
         <a class="navbar-brand" href="#">
           <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt="" loading="lazy" />
-          <span class="ml-2">checkpoint3</span>
+          <span class="ml-2">Checkpoint 3</span>
         </a>
         <button
           class="navbar-toggler"
@@ -53,36 +53,30 @@
     <!-- SECTION -->
     <main>
       <section class="container-fluid py-2 px-4">
-        <div class="row prime-container">
+        <div class="row justify-content-center prime-container">
           <!-- ANCHOR List of notes -->
-          <div class="col-md-4 border border-2 border-light rounded text-light mood">
-            <div class="notes-design">
-              <div class="mb-3">
-                <form onsubmit="app.NotesController.createNote()">
-                  <div class="">
-                    <p class="text-end">3 Jots</p>
-                    <p class="m-0">Add a Jot</p>
-                    <input name="color" type="color" />
-                    <input name="title" class="mx-3 rounded mood text-light" placeholder="Title" />
-                    <button class="btn btn-outline-light rounded mb-2">Create +</button>
-                  </div>
-                </form>
-              </div>
+          <section class="col-md-4 rounded mood text-light border border-1 border-light mb-4 mb-md-0">
+            <!-- NOTE Create Note -->
+            <form onsubmit="app.NotesController.createNote()">
+              <p class="m-0 text">Add a Jot | 3 Jots</p>
+              <input name="color" type="color" />
+              <input name="title" class="mx-3 rounded mood text-light" placeholder="Title" />
+              <button class="btn btn-outline-light rounded mb-2">Create +</button>
+            </form>
 
-              <!-- NOTE Gnerate Notes -->
-              <div id="notes-list"></div>
-            </div>
-          </div>
-          <!-- ANCHOR Active Note -->
-          <section class="col-md-8 rounded mood border border-2 border-light position-relative">
+            <!-- NOTE Gnerate Notes -->
+            <div class="mt-3" id="notes-list"></div>
+          </section>
+
+          <!-- ANCHOR Active Note | Switch note views -->
+          <section class="col-md-7 rounded text-light mood border border-1 border-light position-relative ms-0 ms-md-3">
             <div id="active-note">
-              <div id="note-selection" class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center             align-items-center">
-                <img class="notes-img" src="assets/img/notes-img.png" alt="" />
-                <h3 class="text-light">Create or select a jot to start jotting</h3>
+              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                <img class="notes-img" src="assets/img/notes-img.png" alt="Notes" />
+                <h3>Create or select a jot to start jotting</h3>
               </div>
             </div>
           </section>
-          </div>
         </div>
       </section>
     </main>
