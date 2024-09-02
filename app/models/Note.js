@@ -49,13 +49,14 @@ export class Note {
 
                     <textarea class="form-control border border-2 border-primary bg-dark text-light" id="body" rows="17" onblur="app.NotesController.updateNote()">${this.body}</textarea>
                   </div>
+                  <p class="text-end">Word Count: ${this.body.length}</p>
                 </div>
               </div>`;
   }
 
   static get NoActiveNoteTemplate() {
     return `<div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                <img class="notes-img" src="assets/img/notes-img.png" alt="" />
+                <img class="notes-img" src="assets/img/notes-img.png" alt="Notes" />
                 <h3 class="text-light">Create or select a jot to start jotting</h3>
               </div>`;
   }

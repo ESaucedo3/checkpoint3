@@ -5,10 +5,10 @@ main {
 
 input[type="color"] {
   border-radius: 50%;
-  inline-size: 30px;
-  block-size: 30px;
-  border-width: 1px;
-  border-color: #333;
+  inline-size: 1.9rem;
+  block-size: 1.9rem;
+  padding: 0;
+  cursor: pointer;
 }
 
 .mood {

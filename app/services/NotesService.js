@@ -7,7 +7,6 @@ class NotesService {
     const actualNote = AppState.activeNote;
     actualNote.body = updatedBody;
     actualNote.updatedAt = new Date();
-    AppState.emit('activeNote');
     AppState.emit('notes');
     this.saveNotes();
   }
