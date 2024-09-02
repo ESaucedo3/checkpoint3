@@ -6,13 +6,14 @@ import {setHTML} from '../utils/Writer.js';
 
 export class NotesController {
   constructor() {
-    console.log('Notes Controller Loaded');
-    this.drawNotes();
     AppState.on('notes', this.drawNotes);
+    notesService.loadNotes();
   }
 
   drawNotes() {
     const allNotes = AppState.notes;
+    let noteCount = document.getElementById('note-count');
+    noteCount.textContent = `Add a Jot | ${allNotes.length} Jots`;
     let notesList = '';
     allNotes.forEach((note) => (notesList += note.NotesTemplate));
     setHTML('notes-list', notesList);

@@ -58,9 +58,9 @@
           <section class="col-md-4 rounded mood text-light border border-1 border-light mb-4 mb-md-0">
             <!-- NOTE Create Note -->
             <form onsubmit="app.NotesController.createNote()">
-              <p class="m-0 text">Add a Jot | 3 Jots</p>
+              <p id="note-count" class="m-0 text"></p>
               <input name="color" type="color" />
-              <input name="title" class="mx-3 rounded mood text-light" placeholder="Title" />
+              <input name="title" class="mx-3 rounded mood text-light" placeholder="Title" minlength="3" maxlength="15" required />
               <button class="btn btn-outline-light rounded mb-2">Create +</button>
             </form>
 

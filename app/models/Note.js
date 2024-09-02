@@ -6,9 +6,8 @@ export class Note {
     this.title = data.title;
     this.color = data.color;
     this.body = data.body || '';
-    // NOTE Although new notes will recieve a new date, existing notes cannot
-    this.createdAt = new Date();
-    this.updatedAt = new Date();
+    this.createdAt = data.createdAt === undefined ? new Date() : new Date(data.createdAt);
+    this.updatedAt = data.updatedAt === undefined ? new Date() : new Date(data.updatedAt);
   }
 
   get NotesTemplate() {
@@ -36,7 +35,7 @@ export class Note {
                       <i class="fa-solid fa-bookmark fa-2xl position-absolute bookmark" style="color: ${this.color}"></i>
                       <h4>${this.title}</h4>
                       <p class="m-0">Created on: ${this.createdDate}</p>
-                      <p>Last Updated on: ${this.createdDate}</p>
+                      <p>Last Updated on: ${this.updatedFullDateAndTime}</p>
                     </div>
 
                     <div class="col-6 d-flex justify-content-end align-items-end mb-2">
@@ -48,14 +47,14 @@ export class Note {
                       </button>
                     </div>
 
-                    <textarea class="form-control border border-2 border-primary bg-dark text-light" id="body" rows="13" onblur="app.NotesController.updateNote()">${this.body}</textarea>
+                    <textarea class="form-control border border-2 border-primary bg-dark text-light" id="body" rows="17" onblur="app.NotesController.updateNote()">${this.body}</textarea>
                   </div>
                 </div>
               </div>`;
   }
 
   static get NoActiveNoteTemplate() {
-    return `<div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center             align-items-center">
+    return `<div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                 <img class="notes-img" src="assets/img/notes-img.png" alt="" />
                 <h3 class="text-light">Create or select a jot to start jotting</h3>
               </div>`;
@@ -63,5 +62,9 @@ export class Note {
 
   get createdDate() {
     return this.createdAt.toLocaleDateString();
+  }
+
+  get updatedFullDateAndTime() {
+    return `${this.createdAt.toLocaleDateString()} | ${this.updatedAt.toLocaleTimeString()}`;
   }
 }
