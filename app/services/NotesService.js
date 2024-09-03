@@ -8,6 +8,7 @@ class NotesService {
     actualNote.body = updatedBody;
     actualNote.updatedAt = new Date();
     AppState.emit('notes');
+    AppState.emit('activeNote');
     this.saveNotes();
   }
   createNote(noteFormData) {

@@ -8,6 +8,7 @@ import {setHTML} from '../utils/Writer.js';
 export class NotesController {
   constructor() {
     AppState.on('notes', this.drawNotes);
+    AppState.on('activeNote', this.drawActiveNote);
     notesService.loadNotes();
   }
 
@@ -22,6 +23,10 @@ export class NotesController {
 
   drawActiveNote() {
     const actualNote = AppState.activeNote;
+    if (!actualNote) {
+      setHTML('active-note', Note.NoActiveNoteTemplate);
+      return;
+    }
     setHTML('active-note', actualNote.ActiveNoteTemplate);
   }
 
@@ -30,9 +35,6 @@ export class NotesController {
     const noteForm = event.target;
     const noteFormData = getFormData(noteForm);
     notesService.createNote(noteFormData);
-    const activeNoteElem = document.getElementById('active-note');
-    activeNoteElem.innerHTML = '';
-    this.drawActiveNote();
     // @ts-ignore
     noteForm.reset();
     document.getElementById('body').focus();
@@ -41,15 +43,11 @@ export class NotesController {
 
   setActiveNote(noteId) {
     notesService.setActiveNote(noteId);
-    this.drawActiveNote();
   }
 
   deleteNote(noteId) {
     if (!window.confirm('Want to delete the note?')) return;
     notesService.deleteNote(noteId);
-    const activeNoteElem = document.getElementById('active-note');
-    activeNoteElem.innerHTML = '';
-    activeNoteElem.innerHTML += Note.NoActiveNoteTemplate;
     Pop.toast('Note Deleted!', 'success');
   }
 
@@ -57,8 +55,6 @@ export class NotesController {
     // @ts-ignore
     const textAreaElem = document.getElementById('body').value;
     notesService.updateNote(textAreaElem);
-    const activeNoteElem = document.getElementById('active-note');
-    activeNoteElem.innerHTML = '';
-    this.drawActiveNote();
+    Pop.toast('Note Updated', 'info');
   }
 }
